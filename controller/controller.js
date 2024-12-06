@@ -4,13 +4,15 @@ const {diaryModel } = require('../model/model.js');
 
 
 async function getDiary(req, res) {
-    const diaryData = await diaryModel.find({});
+  if(!req.user) return res.redirect('/login');
+    const diaryData = await diaryModel.find({createdBy: req.user._id});
     return res.status(200).json({status:true, data: diaryData, msg:'Diary fetched successfully'});
 }
 
 async function getDataDiary (req, res) {
     try {
-      const diaryData = await diaryModel.find({}); 
+      if(!req.user) return res.redirect('/login');
+      const diaryData = await diaryModel.find({createdBy: req.user._id}); 
       return res.render('diary', { diary: diaryData });
     } catch (err) {
       console.error('Error fetching diary data:', err);
@@ -23,7 +25,8 @@ async function postDiary(req, res) {
     await diaryModel.create({
         title,
         story,
-        keyNotes
+        keyNotes,
+        createdBy: req.user._id,
     });
     return res.redirect('/diary');
 }

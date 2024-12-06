@@ -9,8 +9,9 @@ async function postUser(req, res) {
         name,
         email,
         password,
+        
     });
-    return res.redirect('/');
+    return res.redirect('/diary');
 }
 
 async function postUserLogin(req, res) {
@@ -25,7 +26,7 @@ async function postUserLogin(req, res) {
     const sessionId = uuidv4();
     setUser(sessionId, user);
     res.cookie('uid', sessionId);
-    return res.redirect('/');
+    return res.redirect('/diary');
 }
 
 module.exports = {

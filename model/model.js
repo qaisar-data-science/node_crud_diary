@@ -9,6 +9,10 @@ const diary = mongoose.Schema({
     },
     keyNotes:{
         type:String
+    },
+    createdBy:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: "users",
     }
 
 }, {timestamps:true});

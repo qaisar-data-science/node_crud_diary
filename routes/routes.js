@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/diary', (req,res)=>{
-    return res.render('diary')
-});
+
 router.get('/signup', (req, res)=>{
     return res.render('signup');
 });

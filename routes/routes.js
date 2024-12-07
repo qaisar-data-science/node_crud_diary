@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { restrictLogInUser } = require('../middleware/middleware.js');
 
 router.get('/diary', (req,res)=>{
     return res.render('diary')
@@ -9,6 +10,10 @@ router.get('/signup', (req, res)=>{
 });
 router.get('/login', (req, res)=>{
     return res.render('login')
+});
+
+router.get('/products', restrictLogInUser, (req, res)=>{
+    return res.render('products')
 });
 
 module.exports = router;

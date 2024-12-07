@@ -8,7 +8,7 @@ const diary = mongoose.Schema({
         type:String,
     },
     keyNotes:{
-        type:String
+        type:String,
     }
 
 }, {timestamps:true});

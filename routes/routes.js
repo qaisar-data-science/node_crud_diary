@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { restrictLogInUser } = require('../middleware/middleware.js');
 
-router.get('/diary', (req,res)=>{
-    return res.render('diary')
-});
+
 router.get('/signup', (req, res)=>{
     return res.render('signup');
 });

@@ -11,6 +11,7 @@ const staticRoute = require('./routes/staticRoute')
 
 const app = express();
 const PORT = 7000;
+app.use('/views', express.static('/images'));
 
 connectDB();
 app.set('view engine', 'ejs');  

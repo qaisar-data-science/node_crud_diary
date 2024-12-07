@@ -11,6 +11,7 @@ async function postUser(req, res) {
         name,
         email,
         password:hashPassword,
+
     });
     return res.redirect('/diary');
 }

@@ -102,21 +102,22 @@
  </head>
  <body>
 <div class="container">
-    <img src="../views/images/banner.jpg" alt="Banner" height="450" class="w-100 rounded">
+    <img src="banner.jpg" alt="Banner" height="450" class="w-100 rounded">
     <h3 class="text-center mt-4">Products Page</h3>
    <div class="row justify-content-center">
+    <% product.forEach(item => { %>
     <div class="col-md-4 col-sm-6 col-12">
      <div class="card">
-      <img alt="A stylish watch with a mint green strap and gold case" height="200" src="https://storage.googleapis.com/a1aa/image/eRgE2XKamOxYWaePDB3oPL0ezAEXVFP4i438p9GjjIIxKWwnA.jpg"/>
+      <img alt="Image" height="200" src="<%= item.productImage %>"/>
       <div class="card-body text-center">
        <h5 class="card-title">
-        CLUSE
+        <%= item.productName %>
        </h5>
        <p class="card-text">
-        This La Bohème model features an ultrathin case with a 38 mm dia
-       </p>
+        <%= item.productDesc %>       
+        </p>
        <p class="price">
-        $60
+        <%= item.productPrice %>
        </p>
        <div class="rating">
         <i class="fas fa-star">
@@ -136,7 +137,9 @@
       </button>
      </div>
     </div>
+    <% }); %>
    </div>
   </div>
+  <script src="index.js"></script>
  </body>
 </html>

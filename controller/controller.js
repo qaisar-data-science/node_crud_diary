@@ -1,5 +1,3 @@
-const express = require('express')
-const router = express.Router();
 const {diaryModel } = require('../model/model.js');
 
 

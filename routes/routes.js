@@ -14,4 +14,8 @@ router.get('/products', restrictLogInUser, (req, res)=>{
     return res.render('products')
 });
 
+router.get('/addproduct', restrictLogInUser, (req, res)=>{
+    return res.render('addProduct')
+});
+
 module.exports = router;
